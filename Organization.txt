@@ -1,0 +1,6 @@
+# Organization
+  There are 2 separate environments these dotfiles support
+        Linux Home
+        sshrc - a tool for sending bash configs over ssh
+
+

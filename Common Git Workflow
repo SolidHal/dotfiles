@@ -1,0 +1,22 @@
+Common Git Workflow:
+
+Update Branch from master: 
+
+git fetch
+git rebase origin/master
+#Then optionally push it to the remote repo
+git push
+
+
+Squashing:
+
+git reset --soft HEAD~#
+git commit -a
+
+or 
+
+git rebase -i HEAD~#
+
+Assign new remote:
+
+git remote set-url origin git@gitlab.<server>.com:user/repo.git

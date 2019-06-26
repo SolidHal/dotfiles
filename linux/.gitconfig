@@ -1,0 +1,12 @@
+[user]
+        name = SolidHal
+        email = hal@halemmerich.com
+[color]
+       ui = true
+[core]
+	editor = nano
+	pager = less
+[pull]
+        rebase = true
+[push]
+	default = simple
