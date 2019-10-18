@@ -331,6 +331,8 @@ you should place your code here."
   (setq-default evil-kill-on-visual-paste nil)
   (evil-leader/set-key "q q" 'spacemacs/frame-killer)
   (setq-default powerline-default-separator 'arrow)
+  (spacemacs/enable-transparency)
+  (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
 
 
 )
