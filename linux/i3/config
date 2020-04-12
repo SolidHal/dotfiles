@@ -225,11 +225,11 @@ workspace $ws9 output DisplayPort-2
 
 # Core application workspace assignments
 assign [class="Firefox"] $ws1
-assign [class="Thunderbird"] $ws4
-assign [class="spotify"] $ws4
-assign [class="signal"] $ws4
+assign [class="Thunderbird"] $ws8
+assign [class="spotify"] $ws10
+assign [class="signal"] $ws8
 assign [class="emacs"] $ws2
-assign [class="putty"] $ws3
+assign [class="putty"] $ws10
 
 # Special assignments for spotify and signal since they are stubborn and dont listen to "assign"
 for_window [class="Spotify"] move to workspace $ws4

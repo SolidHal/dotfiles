@@ -10,3 +10,5 @@
         rebase = true
 [push]
 	default = simple
+[review "review.lineageos.org"]
+	username = solidhal
