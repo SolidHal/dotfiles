@@ -60,6 +60,7 @@ values."
      c-c++
      python
      shell-scripts
+     themeing
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -320,6 +321,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (unless (display-graphic-p (selected-frame))
       (set-face-background 'default "unspecified-bg" (selected-frame))))
   (setq c-basic-offset 4)
+
+  ;; make the background match the terminal background
+  ;; described in readme found here https://github.com/nashamri/spacemacs-theme
+  (custom-set-variables '(spacemacs-theme-custom-colors
+                          '((bg1 . "#2E3440"))))
 )
 
 (defun dotspacemacs/user-config ()
@@ -337,15 +343,10 @@ you should place your code here."
   (spacemacs/enable-transparency)
   (setq anaconda-mode-localhost-address "localhost")
   (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
-  ;; hack to remove the obnoxious blue background on comments
-  ;; using the "correct" set-face-attribute didn't work for
-  ;; font-lock-comment-face
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(font-lock-comment-face ((t (:background "unspecified")))))
+
+  ;; remove the obnoxious blue background on comments
+  ;; described in readme found here https://github.com/nashamri/spacemacs-theme
+  (setq-default spacemacs-theme-comment-bg 'nil)
 
 )
 ;; Do not write anything past this comment. This is where Emacs will
