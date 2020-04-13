@@ -21,7 +21,7 @@ REGOLITHDOTS=$DEVICE/regolith
 
 #shared dots
 ln -s $BASHDOTS/.inputrc ~/.inputrc || true
-ln -s $BASHDOTS/.bash_alises ~/.bash_aliases || true
+ln -s $BASHDOTS/.bash_aliases ~/.bash_aliases || true
 ln -s $SHARED/git/.gitconfig ~/.gitconfig || true
 ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
 
