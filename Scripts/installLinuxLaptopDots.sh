@@ -25,4 +25,4 @@ ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
 
 #device specific dots
 #regolith
-# safeLinkDir $REGOLITHDOTS ~/.config/regolith
+safeLinkDir $REGOLITHDOTS ~/.config/regolith
