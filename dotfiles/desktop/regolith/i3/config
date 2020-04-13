@@ -82,14 +82,14 @@ exec --no-startup-id /usr/bin/nitrogen --restore
 # # then refocus the main workspaces after moving
 
 # Core application workspace assignments
-assign [class="Thunderbird"] $ws8
-assign [class="spotify"] $ws8
-assign [class="signal"] $ws8
+assign [class="Thunderbird"] $ws9
+assign [class="spotify"] $ws9
+assign [class="signal"] $ws9
 assign [class="putty"] $ws10
 
 # Special assignments for spotify and signal since they are stubborn and dont listen to "assign"
-for_window [class="Spotify"] move to workspace $ws8
-for_window [class="Signal"] move to workspace $ws8
+for_window [class="Spotify"] move to workspace $ws9
+for_window [class="Signal"] move to workspace $ws9
 for_window [class="putty"] move to workspace $ws10
 
 
@@ -101,10 +101,11 @@ floating_modifier $mod
 hide_edge_borders smart
 
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/bin/st -f "Source Code Pro Medium:size=8"
+bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=8" 
 
-## Launch // Browser // <Super><Shift> Enter ##
-bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
+##EMCGINNIS MODIFIED
+## Launch // Editor Emacs // <Super><Shift> Enter ##
+bindsym $mod+Shift+Return exec /usr/bin/emacsclient --alternate-editor= --create-frame %F
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
@@ -336,10 +337,10 @@ bindsym $mod+r mode "Resize Mode"
 bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
 
 # Disable titlebar
-set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 10
-set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 10
-default_border pixel $i3-wm.window.border.size
-default_floating_border pixel $i3-wm.floatingwindow.border.size
+# set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 200
+# set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 200
+default_border pixel 3
+default_floating_border pixel 3
 
 # Specify the distance between windows in pixels. (i3-gaps)
 set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5

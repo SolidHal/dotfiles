@@ -1,7 +1,0 @@
-
-if [ -f $SSHHOME/.sshrc.d/.bash_aliases ]; then
-    . $SSHHOME/.sshrc.d/.bash_aliases
-fi
-if [ -f $SSHHOME/.sshrc.d/.inputrc ]; then
-    bind -f $SSHHOME/.sshrc.d/.inputrc
-fi
