@@ -28,3 +28,6 @@ ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
 #device specific dots
 #regolith
 safeLinkDir $REGOLITHDOTS ~/.config/regolith
+
+# install programs
+sudo cp $BINS/st /usr/local/bin/st

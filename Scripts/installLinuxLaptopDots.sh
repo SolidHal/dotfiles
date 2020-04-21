@@ -10,6 +10,7 @@ safeLinkDir(){
 }
 
 DOTS=~/dotfiles/dotfiles
+BINS=~/dotfiles/bin
 SHARED=$DOTS/shared
 DEVICE=$DOTS/laptop
 
@@ -26,3 +27,6 @@ ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
 #device specific dots
 #regolith
 safeLinkDir $REGOLITHDOTS ~/.config/regolith
+
+# install programs
+sudo cp $BINS/st /usr/local/bin/st
