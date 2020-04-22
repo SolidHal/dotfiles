@@ -10,6 +10,7 @@ safeLinkDir(){
 }
 
 DOTS=~/dotfiles/dotfiles
+BINS=~/dotfiles/bin
 SHARED=$DOTS/shared
 DEVICE=$DOTS/desktop
 
