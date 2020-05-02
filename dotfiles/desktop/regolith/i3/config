@@ -52,6 +52,7 @@ workspace 10 output $monitor_four
 
 # # Move workspaces back to normal setup
 bindsym $mod+shift+b workspace $ws1; move workspace to output $monitor_one; \
+workspace $ws10; move workspace to output $monitor_one; \
 workspace $ws4; move workspace to output $monitor_one; \
 workspace $ws7; move workspace to output $monitor_one; \
 workspace $ws2; move workspace to output $monitor_two; \
@@ -60,9 +61,8 @@ workspace $ws8; move workspace to output $monitor_two; \
 workspace $ws3; move workspace to output $monitor_three; \
 workspace $ws6; move workspace to output $monitor_three; \
 workspace $ws9; move workspace to output $monitor_three; \
-workspace $ws10; move workspace to output $monitor_four; \
 workspace $ws1; move workspace to output $monitor_one; \
-workspace $ws2; workspace $ws3; workspace $ws10; workspace $ws1; \
+workspace $ws2; workspace $ws3; workspace $ws1; \
 exec --no-startup-id /usr/bin/nitrogen --restore
 # # then refocus the main workspaces after moving
 
