@@ -415,21 +415,25 @@ set_from_resource $i3-wm.bar.workspace.urgent.text.color i3-wm.bar.workspace.urg
 set_from_resource $i3-wm.font i3-wm.font "pango:Source Code Pro Medium 10"
 font $i3-wm.font
 
+###############################################################################
+# i3 Bar
+###############################################################################
+
 set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
-set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 6, Material Design Icons 6"
+set_from_resource $i3-wm.bar.font i3-wm.bar.font pango:Source Code Pro Medium 13, Material Design Icons 13
 set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
 set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
 set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
 
 # i3xrocks config file. Override this for custom status indicators on the bar.
-set_from_resource $i3-wm.i3xrocks.config i3-wm.i3xrocks.config ~/.config/regolith/i3xrocks.config
+set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u ~/.config/regolith/i3xrocks/conf.d -d /etc/regolith/i3xrocks/conf.d
 
 # The bar configuration
 bar {
   position $i3-wm.bar.position
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
-  status_command i3xrocks -c $i3-wm.i3xrocks.config
+  status_command $i3-wm.bar.status_command
   tray_output $i3-wm.bar.trayoutput
   strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
 
@@ -446,8 +450,9 @@ bar {
   }
 }
 
-# The following exec calls run programs in the background when i3 starts.
-
+###############################################################################
+# External programs launched with i3
+###############################################################################
 
 # compton config file
 set $compton_config ~/.config/regolith/compton.config
@@ -456,13 +461,16 @@ set $compton_config ~/.config/regolith/compton.config
 exec --no-startup-id /usr/bin/compton -f --config $compton_config
 
 # Start Rofication for notifications
-exec --no-startup-id /usr/share/rofication/rofication-daemon.py
+set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/bin/rofication-daemon
+exec --no-startup-id $i3-wm.program.notifications
 
 # Launch first time user experience script
-# exec --no-startup-id /usr/bin/regolith-ftue
+set_from_resource $i3-wm.program.ftui i3-wm.program.ftui /usr/bin/regolith-ftue
+exec --no-startup-id $i3-wm.program.ftui
 
 # Hide the mouse pointer if unused for a duration
-exec --no-startup-id /usr/bin/unclutter -b
+set_from_resource $i3-wm.program.unclutter i3-wm.program.unclutter /usr/bin/regolith-ftue /usr/bin/unclutter -b
+exec --no-startup-id $i3-wm.program.unclutter
 
 # Restore the wallpapers
 exec --no-startup-id /usr/bin/nitrogen --restore
