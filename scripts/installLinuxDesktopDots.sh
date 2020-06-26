@@ -32,6 +32,8 @@ safeLinkDir $REGOLITHDOTS ~/.config/regolith
 
 # install programs
 sudo cp $BINS/st /usr/local/bin/st
+#Have to configure st.info
+tic -sx $BINS/st.info
 
 # install z.sh if it doesn't exist
 if ! grep -q /z/z.sh ~/.bashrc; then
