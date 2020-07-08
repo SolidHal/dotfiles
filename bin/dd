@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Who called this script?
+PARENT_COMMAND="$(ps -o comm= $PPID)"   
+if [[ $(id -u) != 0 ]]; then # Only non-root processes enter password (ie "sudo dd ..." is ok)
+    echo dd must be called with sudo powers
+    exit 1
+fi
+
+# log dd usage for audit trails
+# log-file '"$PARENT_COMMAND"" - ""$@"' "/var/log/dd-usage"
+
+# Display hints & arguments. Get any key to proceed or <Ctrl>+C to abort
+echo "╔════════════════════════════════════════════════════════════════╗"
+echo "║                                                                ║"
+echo "║                      dd - Data Duplicator                      ║"
+echo "║                                                                ║"
+echo "╚════════════════════════════════════════════════════════════════╝"
+echo
+echo " Parameter 1 hint: if=/dev/zero"
+echo " Parameter 2 hint: of=/dev/sdY where Y cannot be a, b or c"
+echo " Parms >2 hints:   bs=512 is default block size"
+echo " Parms >2 hints:   count=100 will process 100 blocks"
+echo
+echo " Use /bin/dd --help for more info (don't use dd --help)"
+echo
+# Display drive letterss, names and sizes without partitions for guide
+lsblk -ido KNAME,TYPE,SIZE,MODEL
+echo
+echo " Current parameters: "”$@”
+echo
+echo "      Press <Enter> to continue or <Ctrl>+C to abort."
+
+read ANYKEY
