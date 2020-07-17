@@ -1,4 +1,8 @@
- dotfiles/laptop/regolith/flags/ui-fingerprint
- dotfiles/desktop/regolith/flags/ui-fingerprint
- dotfiles/desktop/regolith/flags/first-time-setup-r1-4-1
- dotfiles/laptop/regolith/flags/first-time-setup-r1-4-1
+dotfiles/desktop/regolith/flags/ui-fingerprint
+dotfiles/desktop/regolith/flags/show-shortcuts
+dotfiles/desktop/regolith/flags/first-time-setup-r*
+dotfiles/desktop/regolith/flags/term-profile
+dotfiles/laptop/regolith/flags/ui-fingerprint
+dotfiles/laptop/regolith/flags/show-shortcuts
+dotfiles/laptop/regolith/flags/term-profile
+dotfiles/laptop/regolith/flags/first-time-setup-r*
