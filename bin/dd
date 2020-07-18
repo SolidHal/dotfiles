@@ -32,3 +32,32 @@ echo
 echo "      Press <Enter> to continue or <Ctrl>+C to abort."
 
 read ANYKEY
+
+if [[ "$2" != of=* ]]; then
+    echo -e "\a" # PC speaker beep or pleasant bell with PulseAudio hooks
+    echo "ERROR! Parameter 2 must start with 'of=' (output file=)"
+    exit 2
+fi
+
+if [[ "$2" =~ "sda" ]]; then
+    echo -e "\a" # PC speaker beep or pleasant bell with PulseAudio hooks
+    echo "ERROR! Output file (of=) cannot be /dev/sda"
+    exit 2
+fi
+
+if [[ "$2" =~ "sdb" ]]; then
+    echo -e "\a" # PC speaker beep or pleasant bell with PulseAudio hooks
+    echo "ERROR! Output file (of=) cannot be /dev/sdb"
+    exit 2
+fi
+
+if [[ "$2" =~ "sdc" ]]; then
+    echo -e "\a" # PC speaker beep or pleasant bell with PulseAudio hooks
+    echo "ERROR! Output file (of=) cannot be /dev/sdc"
+    exit 2
+fi
+
+# Call REAL dd command with parameters passed to this wrapper sript
+/bin/dd "$@"
+
+exit 0
