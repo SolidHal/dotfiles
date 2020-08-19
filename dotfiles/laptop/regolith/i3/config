@@ -70,6 +70,41 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
 # BEGIN SOLIDHAL WORKSPACE MODIFICATOINS
 
+
+# Assign workspaces to monitors. Uses the colomns on a numpad for assignment to each monitor
+# Check these labels with xrandr
+set $monitor_one "DP-1"
+set $monitor_two "eDP-1"
+# set $monitor_four "HDMI-A-0"
+
+workspace 1 output $monitor_two
+workspace 4 output $monitor_two
+workspace 7 output $monitor_two
+workspace 2 output $monitor_one
+workspace 5 output $monitor_one
+workspace 8 output $monitor_one
+workspace 3 output $monitor_one
+workspace 6 output $monitor_one
+workspace 9 output $monitor_one
+workspace 10 output $monitor_one
+
+# # Move workspaces back to normal setup
+bindsym $mod+shift+b workspace $ws1; move workspace to output $monitor_one; \
+workspace $ws10; move workspace to output $monitor_one; \
+workspace $ws1; move workspace to output $monitor_two; \
+workspace $ws4; move workspace to output $monitor_two; \
+workspace $ws7; move workspace to output $monitor_two; \
+workspace $ws2; move workspace to output $monitor_one; \
+workspace $ws5; move workspace to output $monitor_one; \
+workspace $ws8; move workspace to output $monitor_one; \
+workspace $ws3; move workspace to output $monitor_one; \
+workspace $ws6; move workspace to output $monitor_one; \
+workspace $ws9; move workspace to output $monitor_one; \
+workspace $ws2; workspace $ws1; \
+exec --no-startup-id /usr/bin/nitrogen --restore
+# # then refocus the main workspaces after moving
+
+
 # Core application workspace assignments
 assign [class="Thunderbird"] $ws9
 assign [class="spotify"] $ws9
@@ -276,25 +311,9 @@ bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
 
-## Session // Logout // <><Shift> e ##
-set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-session-quit --logout
-bindsym $mod+Shift+e exec $i3-wm.program.logout
-
-## Session // Reboot // <><Shift> b ##
-set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
-bindsym $mod+Shift+b exec $i3-wm.program.reboot
-
-## Session // Power Down // <><Shift> p ##
-set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
-bindsym $mod+Shift+p exec $i3-wm.program.shutdown
-
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
 bindsym $mod+Escape exec $i3-wm.program.lock
-
-## Session // Sleep // <><Shift> s ##
-set_from_resource $i3-wm.program.sleep i3-wm.program.sleep systemctl suspend
-bindsym $mod+Shift+s exec $i3-wm.program.sleep
 
 ###############################################################################
 # System Management
@@ -374,10 +393,15 @@ bindsym $mod+r mode "Resize Mode"
 ###############################################################################
 
 # Disable titlebar
-set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 1
-set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 1
-default_border pixel $i3-wm.window.border.size
-default_floating_border pixel $i3-wm.floatingwindow.border.size
+# set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 1
+# set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 1
+# default_border pixel $i3-wm.window.border.size
+# default_floating_border pixel $i3-wm.floatingwindow.border.size
+
+##### SOLIDHAL SET BORDER SIZE
+default_border pixel 3
+default_floating_border pixel 3
+
 
 # Specify the distance between windows in pixels. (i3-gaps)
 set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5

@@ -39,7 +39,7 @@ set $monitor_two "DisplayPort-0"
 set $monitor_three "DisplayPort-1"
 # set $monitor_four "HDMI-A-0"
 
-workspace 1 output $monitor_four
+workspace 1 output $monitor_one
 workspace 4 output $monitor_one
 workspace 7 output $monitor_one
 workspace 2 output $monitor_two
@@ -48,7 +48,7 @@ workspace 8 output $monitor_two
 workspace 3 output $monitor_three
 workspace 6 output $monitor_three
 workspace 9 output $monitor_three
-workspace 10 output $monitor_four
+workspace 10 output $monitor_one
 
 # # Move workspaces back to normal setup
 bindsym $mod+shift+b workspace $ws1; move workspace to output $monitor_one; \
