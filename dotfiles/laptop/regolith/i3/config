@@ -73,34 +73,52 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
 # Assign workspaces to monitors. Uses the colomns on a numpad for assignment to each monitor
 # Check these labels with xrandr
-set $monitor_one "DP-1"
-set $monitor_two "eDP-1"
+set $monitor_one "DP-2"
+set $monitor_two "DP-1"
+set $monitor_three "eDP-1"
 # set $monitor_four "HDMI-A-0"
 
-workspace 1 output $monitor_two
-workspace 4 output $monitor_two
-workspace 7 output $monitor_two
-workspace 2 output $monitor_one
-workspace 5 output $monitor_one
-workspace 8 output $monitor_one
-workspace 3 output $monitor_one
-workspace 6 output $monitor_one
-workspace 9 output $monitor_one
+workspace 1 output $monitor_one
+workspace 4 output $monitor_one
+workspace 7 output $monitor_one
+workspace 2 output $monitor_two
+workspace 5 output $monitor_two
+workspace 8 output $monitor_two
+workspace 3 output $monitor_three
+workspace 6 output $monitor_three
+workspace 9 output $monitor_three
 workspace 10 output $monitor_one
 
-# # Move workspaces back to normal setup
+# # Move workspaces back to dual display plus laptop setup
 bindsym $mod+shift+b workspace $ws1; move workspace to output $monitor_one; \
 workspace $ws10; move workspace to output $monitor_one; \
+workspace $ws1; move workspace to output $monitor_one; \
+workspace $ws4; move workspace to output $monitor_one; \
+workspace $ws7; move workspace to output $monitor_one; \
+workspace $ws2; move workspace to output $monitor_two; \
+workspace $ws5; move workspace to output $monitor_two; \
+workspace $ws8; move workspace to output $monitor_two; \
+workspace $ws3; move workspace to output $monitor_three; \
+workspace $ws6; move workspace to output $monitor_three; \
+workspace $ws9; move workspace to output $monitor_three; \
+workspace $ws2; workspace $ws1; workspace $ws3; \
+exec --no-startup-id /usr/bin/nitrogen --restore
+# # then refocus the main workspaces after moving
+
+
+# # Move workspaces back to single display plus laptop setup
+bindsym $mod+shift+g workspace $ws1; move workspace to output $monitor_two; \
+workspace $ws10; move workspace to output $monitor_two; \
 workspace $ws1; move workspace to output $monitor_two; \
 workspace $ws4; move workspace to output $monitor_two; \
 workspace $ws7; move workspace to output $monitor_two; \
-workspace $ws2; move workspace to output $monitor_one; \
-workspace $ws5; move workspace to output $monitor_one; \
-workspace $ws8; move workspace to output $monitor_one; \
-workspace $ws3; move workspace to output $monitor_one; \
-workspace $ws6; move workspace to output $monitor_one; \
-workspace $ws9; move workspace to output $monitor_one; \
-workspace $ws2; workspace $ws1; \
+workspace $ws2; move workspace to output $monitor_two; \
+workspace $ws5; move workspace to output $monitor_two; \
+workspace $ws8; move workspace to output $monitor_two; \
+workspace $ws3; move workspace to output $monitor_three; \
+workspace $ws6; move workspace to output $monitor_three; \
+workspace $ws9; move workspace to output $monitor_three; \
+workspace $ws2; workspace $ws1; workspace $ws3; \
 exec --no-startup-id /usr/bin/nitrogen --restore
 # # then refocus the main workspaces after moving
 
