@@ -2,3 +2,5 @@
 alias em=~/dotfiles/bin/em.sh
 # virtual machines
 alias bldvm="ssh root@192.168.10.3"
+#remote bldvm
+alias rbldvm="ssh root@liquidsnake-bldvm"

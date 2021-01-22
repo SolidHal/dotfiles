@@ -34,8 +34,8 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 
 # Assign workspaces to monitors. Uses the colomns on a numpad for assignment to each monitor
 # Check these labels with xrandr
-set $monitor_one "DisplayPort-2"
-set $monitor_two "DisplayPort-0"
+set $monitor_one "DisplayPort-0"
+set $monitor_two "DisplayPort-2"
 set $monitor_three "DisplayPort-1"
 # set $monitor_four "HDMI-A-0"
 
@@ -101,11 +101,11 @@ floating_modifier $mod
 hide_edge_borders smart
 
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=8" 
+bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=10"
 
 ##EMCGINNIS MODIFIED
-## Launch // Editor Emacs // <Super><Shift> Enter ##
-bindsym $mod+Shift+Return exec /usr/bin/emacsclient --alternate-editor= --create-frame %F
+## Launch // Non-transparent terminal // <Super><Shift> Enter ##
+bindsym $mod+Shift+Return exec /usr/local/bin/st -f "Source Code Pro:size=12"
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
@@ -339,14 +339,14 @@ bindsym $mod+Shift+question exec --no-startup-id /usr/bin/remontoire-toggle
 # Disable titlebar
 # set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 200
 # set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 200
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 5
+default_floating_border pixel 5
 
 # Specify the distance between windows in pixels. (i3-gaps)
-set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5
-set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 0
-gaps inner $i3-wm.gaps.inner.size
-gaps outer $i3-wm.gaps.outer.size
+# set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 12
+# set_from_resource $i3-wm.gaps.outer.size i3-wm.gaps.outer.size 12
+gaps inner 18
+gaps outer 0
 
 # Only enable gaps on a workspace when there is at least one container
 # smart_gaps off

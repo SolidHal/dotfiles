@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     clojure
+     javascript
      csv
      yaml
      html
@@ -146,7 +148,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font `("Source Code Pro"
+   dotspacemacs-default-font `("Source Code Pro Medium"
                                :size ,(if (string-equal "greyfox" (system-name)) 20 18)
                                :weight normal
                                :width normal
@@ -245,11 +247,11 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 93
+   dotspacemacs-active-transparency 100
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 93
+   dotspacemacs-inactive-transparency 100
    ;; If non nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
    ;; If non nil show the color guide hint for transient state keys. (default t)
@@ -345,6 +347,18 @@ you should place your code here."
   (setq anaconda-mode-localhost-address "localhost")
   (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
 
+  (defun my-file-find-hook ()
+    ;; open as root
+    (when (and (not (file-writable-p buffer-file-name))
+               (y-or-n-p-with-timeout "File not writable. Open as root?" 2 t))
+      (let ((obuf (current-buffer)))
+        (spacemacs/sudo-edit)
+        (unless (equal (current-buffer) obuf)
+          (let (kill-buffer-query-functions kill-buffer-hook)
+            (kill-buffer obuf))))))
+
+  (add-hook 'find-file-hook 'my-file-find-hook)
+
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -356,7 +370,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (transient csv-mode helm-gtags ggtags frames-only-mode yaml-mode wgrep smex ivy-hydra lv flyspell-correct-ivy counsel-projectile counsel swiper ivy erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode yapfify smeargle rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode insert-shebang hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck fish-mode evil-magit magit magit-popup git-commit with-editor disaster cython-mode company-statistics company-shell company-c-headers company-anaconda company color-identifiers-mode cmake-mode clang-format auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+    (clojure-snippets clj-refactor inflections paredit cider-eval-sexp-fu cider sesman seq queue parseedn clojure-mode parseclj a livid-mode json-mode js2-refactor web-beautify skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode js-doc coffee-mode transient csv-mode helm-gtags ggtags frames-only-mode yaml-mode wgrep smex ivy-hydra lv flyspell-correct-ivy counsel-projectile counsel swiper ivy erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode yapfify smeargle rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode insert-shebang hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck fish-mode evil-magit magit magit-popup git-commit with-editor disaster cython-mode company-statistics company-shell company-c-headers company-anaconda company color-identifiers-mode cmake-mode clang-format auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
  '(spacemacs-theme-comment-bg (quote nil))
  '(spacemacs-theme-custom-colors (quote ((bg1 . "#2E3440"))))
  '(tramp-copy-size-limit 99999999)
