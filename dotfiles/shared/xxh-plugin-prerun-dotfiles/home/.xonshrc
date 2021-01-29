@@ -11,6 +11,8 @@ $fzf_dir_binding = "c-g"      # Ctrl+G
 
 # f__ and TAB or ALT+F for https://github.com/tokenizer/xontrib-output-search
 
+$VISUAL="/usr/bin/vim"
+$EDITOR="/usr/bin/vim"
 $COMPLETIONS_CONFIRM=True
 
 # create xontrib to make em.sh work over ssh, aka open the file specified on an ssh connection
