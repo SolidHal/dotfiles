@@ -58,10 +58,8 @@ xxh +I xxh-plugin-prerun-dotfiles+path+$SHARED/xxh-plugin-prerun-dotfiles
 #activate xonsh as the default shell
 command -v xonsh | sudo tee -a /etc/shells
 chsh -s $(which xonsh)
-sudo chsh -s $(which xonsh)
-
-#TODO: add to .xonshrc when stable
-$COMPLETIONS_CONFIRM=True
+# is the required for sudo to use our shell?
+#sudo chsh -s $(which xonsh)
 
 # install z.sh if it doesn't exist
 if ! grep -q /z/z.sh ~/.bashrc; then
