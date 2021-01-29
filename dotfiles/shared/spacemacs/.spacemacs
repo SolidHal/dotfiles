@@ -318,17 +318,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default dotspacemacs-line-numbers 't)
   ;; Basis for terminal window transparency, doesnt seem to cause issues in the gui
-  (defun on-after-init ()
-    (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame))))
+  ;;(defun on-after-init ()
+  ;;  (unless (display-graphic-p (selected-frame))
+  ;;    (set-face-background 'default "unspecified-bg" (selected-frame))))
   (setq c-basic-offset 4)
 
+  ;; more of this below in custom-set-variables
   ;; make the background match the terminal background
   ;; remove the obnoxious blue background on comments
   ;; described in readme found here https://github.com/nashamri/spacemacs-theme
-  (custom-set-variables '(spacemacs-theme-custom-colors
-                          '((bg1 . "#2E3440")))
-                        '(spacemacs-theme-comment-bg 'nil))
+  ;; (custom-set-variables '(spacemacs-theme-custom-colors
+  ;;                       '((bg1 . "#2E3440")))
+  ;;                       '(spacemacs-theme-comment-bg 'nil))
 )
 
 (defun dotspacemacs/user-config ()
@@ -343,9 +344,9 @@ you should place your code here."
   (evil-leader/set-key "q q" 'spacemacs/frame-killer)
   (evil-leader/set-key "r e" 'revert-buffer)
   (setq-default powerline-default-separator 'arrow)
-  (spacemacs/enable-transparency)
+  ;; (spacemacs/enable-transparency)
   (setq anaconda-mode-localhost-address "localhost")
-  (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
+  ;; (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
 
   (defun my-file-find-hook ()
     ;; open as root
@@ -371,8 +372,8 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (clojure-snippets clj-refactor inflections paredit cider-eval-sexp-fu cider sesman seq queue parseedn clojure-mode parseclj a livid-mode json-mode js2-refactor web-beautify skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode js-doc coffee-mode transient csv-mode helm-gtags ggtags frames-only-mode yaml-mode wgrep smex ivy-hydra lv flyspell-correct-ivy counsel-projectile counsel swiper ivy erc-yt erc-view-log erc-social-graph erc-image erc-hl-nicks xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode yapfify smeargle rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort pip-requirements orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode markdown-toc markdown-mode magit-gitflow live-py-mode insert-shebang hy-mode dash-functional htmlize helm-pydoc helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck fish-mode evil-magit magit magit-popup git-commit with-editor disaster cython-mode company-statistics company-shell company-c-headers company-anaconda company color-identifiers-mode cmake-mode clang-format auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
- '(spacemacs-theme-comment-bg (quote nil))
- '(spacemacs-theme-custom-colors (quote ((bg1 . "#2E3440"))))
+ ;; '(spacemacs-theme-comment-bg (quote nil))
+ ;; '(spacemacs-theme-custom-colors (quote ((bg1 . "#2E3440"))))
  '(tramp-copy-size-limit 99999999)
  '(tramp-inline-compress-start-size 999999999999))
 (custom-set-faces
