@@ -330,6 +330,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (custom-set-variables '(spacemacs-theme-custom-colors
   ;;                       '((bg1 . "#2E3440")))
   ;;                       '(spacemacs-theme-comment-bg 'nil))
+  ;; (setenv "PATH"
+  ;;         (concat
+  ;;          "/usr/local/sbin" ":"
+  ;;          "/usr/local/bin" ":"
+  ;;          "/usr/sbin" ":"
+  ;;          "/usr/bin" ":"
+  ;;          "/sbin" ":"
+  ;;          "/bin" ":"
+  ;;          (getenv "PATH")
+  ;;          )
+  ;;         )
+  (setq-default shell-file-name "/bin/bash")
 )
 
 (defun dotspacemacs/user-config ()
@@ -347,6 +359,7 @@ you should place your code here."
   ;; (spacemacs/enable-transparency)
   (setq anaconda-mode-localhost-address "localhost")
   ;; (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
+
 
   (defun my-file-find-hook ()
     ;; open as root
