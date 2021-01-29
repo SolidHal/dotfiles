@@ -4,7 +4,7 @@
 [color]
        ui = true
 [core]
-	editor = nano
+	editor = vim
 	pager = less
 [pull]
         rebase = true
