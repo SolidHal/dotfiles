@@ -24,7 +24,7 @@ ln -s $BASHDOTS/.inputrc ~/.inputrc || true
 ln -s $BASHDOTS/.bash_aliases ~/.bash_aliases || true
 ln -s $SHARED/git/.gitconfig ~/.gitconfig || true
 ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
-ls -s $SHARED/xonsh/.xonshrc ~/.xonshrc || true
+ln -s $SHARED/xonsh/.xonshrc ~/.xonshrc || true
 
 #device specific dots
 #regolith
