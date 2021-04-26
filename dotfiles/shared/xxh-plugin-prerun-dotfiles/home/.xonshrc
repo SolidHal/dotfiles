@@ -1,9 +1,10 @@
-# XONSH WEBCONFIG START
-$PROMPT = '{env_name}{BOLD_GREEN}{user}@{hostname}{BOLD_BLUE} {cwd}{branch_color}{curr_branch: {}}{RESET} {BOLD_BLUE}{prompt_end}{RESET} '
+if "dumb" in $TERM:
+    exec  /bin/sh
+else:
+    $PROMPT = '{env_name}{BOLD_GREEN}{user}@{hostname}{BOLD_BLUE} {cwd}{branch_color}{curr_branch: {}}{RESET} {BOLD_BLUE}{prompt_end}{RESET} '
+
 $XONSH_COLOR_STYLE = 'paraiso-dark'
 xontrib load argcomplete prompt_bar pipeliner whole_word_jumping whole_word_jumping output_search fzf-widgets hist_navigator output_search apt_tabcomplete abbrevs docker_tabcomplete z
-# XONSH WEBCONFIG END
-
 $fzf_history_binding = "c-r"  # Ctrl+R
 $fzf_ssh_binding = "c-s"      # Ctrl+S
 $fzf_file_binding = "c-t"      # Ctrl+T

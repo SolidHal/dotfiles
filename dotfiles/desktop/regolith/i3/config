@@ -101,7 +101,7 @@ floating_modifier $mod
 hide_edge_borders smart
 
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=10"
+bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=10" /usr/local/bin/xonsh
 
 ##EMCGINNIS MODIFIED
 ## Launch // Non-transparent terminal // <Super><Shift> Enter ##

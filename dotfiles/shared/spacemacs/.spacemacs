@@ -74,7 +74,10 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages
+   '(
+     anaconda-mode
+                                    )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -340,7 +343,18 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;          "/bin" ":"
   ;;          (getenv "PATH")
   ;;          )
-  ;;         )
+  (defun my-file-find-hook ()
+    ;; open as root
+    (when (and (not (file-writable-p buffer-file-name))
+               (y-or-n-p-with-timeout "File not writable. Open as root?" 2 t))
+      (let ((obuf (current-buffer)))
+        (spacemacs/sudo-edit)
+        (unless (equal (current-buffer) obuf)
+          (let (kill-buffer-query-functions kill-buffer-hook)
+            (kill-buffer obuf))))))
+
+  (add-hook 'find-file-hook 'my-file-find-hook) ;;         )
+
   (setq-default shell-file-name "/bin/bash")
 )
 
@@ -359,19 +373,6 @@ you should place your code here."
   ;; (spacemacs/enable-transparency)
   (setq anaconda-mode-localhost-address "localhost")
   ;; (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
-
-
-  (defun my-file-find-hook ()
-    ;; open as root
-    (when (and (not (file-writable-p buffer-file-name))
-               (y-or-n-p-with-timeout "File not writable. Open as root?" 2 t))
-      (let ((obuf (current-buffer)))
-        (spacemacs/sudo-edit)
-        (unless (equal (current-buffer) obuf)
-          (let (kill-buffer-query-functions kill-buffer-hook)
-            (kill-buffer obuf))))))
-
-  (add-hook 'find-file-hook 'my-file-find-hook)
 
 )
 ;; Do not write anything past this comment. This is where Emacs will
