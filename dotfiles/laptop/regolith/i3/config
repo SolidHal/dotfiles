@@ -141,7 +141,7 @@ for_window [class="Signal"] move to workspace $ws9
 
 ##SOLIDHAL MODIFIED
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/local/bin/st -A "0.93" -f "Source Code Pro:size=8" 
+bindsym $mod+Return exec /usr/bin/alacritty
 
 ## Launch // Editor Emacs // <Super><Shift> Enter ##
 bindsym $mod+Shift+Return exec /usr/bin/emacsclient --alternate-editor= --create-frame %F

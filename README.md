@@ -1,0 +1,6 @@
+alacritty ppa
+```
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt update
+sudo apt install alacritty
+```
