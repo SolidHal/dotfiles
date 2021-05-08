@@ -325,6 +325,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;  (unless (display-graphic-p (selected-frame))
   ;;    (set-face-background 'default "unspecified-bg" (selected-frame))))
   (setq c-basic-offset 4)
+  (remove-hook 'python-mode-hook 'spacemacs//init-eldoc-python-mode)
+
 
   ;; more of this below in custom-set-variables
   ;; make the background match the terminal background
