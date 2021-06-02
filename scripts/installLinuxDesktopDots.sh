@@ -15,16 +15,24 @@ SHARED=$DOTS/shared
 DEVICE=$DOTS/desktop
 
 BASHDOTS=$SHARED/bash
+ZSHDOTS=$SHARED/zsh
+ALACRITTYDOTS=$SHARED/alacritty
 REGOLITHDOTS=$DEVICE/regolith
 #for laptop
 # DEVICE=$DOTS/laptop
 
+#pre reqs
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt-get update
+sudo apt install alacritty
 
 #shared dots
 ln -s $BASHDOTS/.inputrc ~/.inputrc || true
 ln -s $BASHDOTS/.bash_aliases ~/.bash_aliases || true
 ln -s $SHARED/git/.gitconfig ~/.gitconfig || true
 ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
+ln -s $ZSHDOTS/.zshrc ~/.zshrc || true
+ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
 
 #device specific dots
 #regolith

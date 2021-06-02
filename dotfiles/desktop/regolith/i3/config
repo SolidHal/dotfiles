@@ -100,12 +100,9 @@ floating_modifier $mod
 
 hide_edge_borders smart
 
+##SOLIDHAL MODIFIED
 ## Launch // Terminal // <Super> Enter ##
 bindsym $mod+Return exec /usr/bin/alacritty
-
-##EMCGINNIS MODIFIED
-## Launch // Non-transparent terminal // <Super><Shift> Enter ##
-bindsym $mod+Shift+Return exec /usr/local/bin/st -f "Source Code Pro:size=12"
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 

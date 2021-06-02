@@ -11,20 +11,26 @@ safeLinkDir(){
 
 DOTS=~/dotfiles/dotfiles
 BINS=~/dotfiles/bin
-XXH=$BINS/xxh
 SHARED=$DOTS/shared
 DEVICE=$DOTS/laptop
 
 BASHDOTS=$SHARED/bash
+ZSHDOTS=$SHARED/zsh
+ALACRITTYDOTS=$SHARED/alacritty
 REGOLITHDOTS=$DEVICE/regolith
 
+#pre reqs
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt-get update
+sudo apt install alacritty
 
 #shared dots
 ln -s $BASHDOTS/.inputrc ~/.inputrc || true
 ln -s $BASHDOTS/.bash_aliases ~/.bash_aliases || true
 ln -s $SHARED/git/.gitconfig ~/.gitconfig || true
 ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
-ln -s $SHARED/xonsh/.xonshrc ~/.xonshrc || true
+ln -s $ZSHDOTS/.zshrc ~/.zshrc || true
+ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
 
 #device specific dots
 #regolith
@@ -35,31 +41,6 @@ sudo cp $BINS/st /usr/local/bin/st
 #Have to configure st.info
 tic -sx $BINS/st.info
 sudo cp $BINS/dd /usr/local/sbin/dd
-
-#install xonsh app image
-sudo pip3 install pygments prompt-toolkit setproctitle xonsh
-
-#install xxh app image
-#pxepect package conflicts between ubuntu and pypi so lets just install as user
-pip3 install xxh-xxh
-
-# required for xxh with password
-sudo apt install sshpass
-
-# required for fzf-widgets
-sudo apt-get install fzf
-
-# install xxh xonsh package
-xxh +I xxh-shell-xonsh
-
-# install xxh dotfiles package locally
-xxh +I xxh-plugin-prerun-dotfiles+path+$SHARED/xxh-plugin-prerun-dotfiles
-
-#activate xonsh as the default shell
-command -v xonsh | sudo tee -a /etc/shells
-chsh -s $(which xonsh)
-# is the required for sudo to use our shell?
-#sudo chsh -s $(which xonsh)
 
 # install z.sh if it doesn't exist
 if ! grep -q /z/z.sh ~/.bashrc; then
