@@ -36,6 +36,14 @@ zstyle ':z4h:ssh:*'                   enable 'no'
 zstyle ':z4h:ssh:irdv-*'                   enable 'yes'
 zstyle ':z4h:ssh:liquidsnake-*'                   enable 'yes'
 
+s () {
+    sshpass -p welcome ssh -oStrictHostKeyChecking=no -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null ir@"$@"
+}
+
+ss () {
+    /usr/bin/ssh "$@"
+}
+
 # Send these files over to the remote host when connecting over ssh to the
 # enabled hosts.
 zstyle ':z4h:ssh:*' send-extra-files '~/.nanorc' '~/.env.zsh'
