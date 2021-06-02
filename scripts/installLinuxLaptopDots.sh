@@ -30,6 +30,8 @@ ln -s $BASHDOTS/.bash_aliases ~/.bash_aliases || true
 ln -s $SHARED/git/.gitconfig ~/.gitconfig || true
 ln -s $SHARED/spacemacs/.spacemacs ~/.spacemacs || true
 ln -s $ZSHDOTS/.zshrc ~/.zshrc || true
+ln -s $ZSHDOTS/.zshenv ~/.zshenv || true
+ln -s $ZSHDOTS/.p10k.zsh ~/.p10k.zsh || true
 ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
 
 #device specific dots
