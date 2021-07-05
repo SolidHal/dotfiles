@@ -1,0 +1,16 @@
+#tabbrowser-tabs {
+  visibility: collapse !important;
+}
+#sidebar-header {
+  display: none;
+}
+
+#sidebar {
+  min-width: 100px !important;
+}
+
+/* Remove tab list icon */
+#alltabs-button {
+display: none !important; 
+}
+
