@@ -12,3 +12,9 @@
 	default = simple
 [review "review.lineageos.org"]
 	username = solidhal
+
+[ssh]
+	identity = /home/solidhal/.ssh/id_rsa
+
+[includeIf "gitdir:~/katana/"]
+      path = ~/katana/.gitconfig

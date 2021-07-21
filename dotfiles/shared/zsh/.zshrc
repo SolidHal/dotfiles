@@ -36,6 +36,8 @@ zstyle ':z4h:ssh:*'                   enable 'no'
 zstyle ':z4h:ssh:irdv-*'                   enable 'yes'
 zstyle ':z4h:ssh:liquidsnake-*'                   enable 'yes'
 
+
+## SOLIDHAL CUSTOM ADDITONS
 s () {
     TERM=xterm-256color sshpass -p welcome ssh -oStrictHostKeyChecking=no -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null ir@"$@"
 }
@@ -43,6 +45,7 @@ s () {
 ss () {
     TERM=xterm-256color /usr/bin/ssh "$@"
 }
+
 
 # Send these files over to the remote host when connecting over ssh to the
 # enabled hosts.
