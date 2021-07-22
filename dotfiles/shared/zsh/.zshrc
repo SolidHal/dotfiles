@@ -39,11 +39,10 @@ zstyle ':z4h:ssh:raiden*'                   enable 'yes'
 
 ## SOLIDHAL CUSTOM ADDITONS
 s () {
-    TERM=xterm-256color sshpass -p welcome ssh -oStrictHostKeyChecking=no -o GlobalKnownHostsFile=/dev/null -o UserKnownHostsFile=/dev/null ir@"$@"
-}
-
-ss () {
     TERM=xterm-256color /usr/bin/ssh "$@"
+}
+sx () {
+    TERM=xterm-256color /usr/bin/ssh -X "$@"
 }
 
 
