@@ -33,8 +33,8 @@ zstyle ':z4h:ssh:example-hostname1'   enable 'yes'
 zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
 # The default value if none of the overrides above match the hostname.
 zstyle ':z4h:ssh:*'                   enable 'no'
-zstyle ':z4h:ssh:irdv-*'                   enable 'yes'
 zstyle ':z4h:ssh:liquidsnake-*'                   enable 'yes'
+zstyle ':z4h:ssh:raiden*'                   enable 'yes'
 
 
 ## SOLIDHAL CUSTOM ADDITONS
