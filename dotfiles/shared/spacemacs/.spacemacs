@@ -543,11 +543,20 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                       :width normal)))
 
   (if (string-equal "raiden" (system-name))
-      (setq-default dotspacemacs-default-font
-                    `("Source Code Pro"
-                      :size 25
-                      :weight normal
-                      :width normal)))
+      (if (getenv "SSH_CONNECTION")
+          ;if case
+          (setq-default dotspacemacs-default-font
+                        `("Source Code Pro"
+                          :size 18
+                          :weight normal
+                          :width normal))
+          ;else case
+          (setq-default dotspacemacs-default-font
+                        `("Source Code Pro"
+                          :size 25
+                          :weight normal
+                          :width normal)))
+  )
 
   (if (string-equal "solidhal-dev" (system-name))
       (setq-default dotspacemacs-default-font
