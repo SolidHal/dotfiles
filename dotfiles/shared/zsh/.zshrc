@@ -45,6 +45,16 @@ sx () {
     TERM=xterm-256color /usr/bin/ssh -X "$@"
 }
 
+fd () {
+    find . -name "*$@*"
+}
+
+la () {
+    ls --color -lah "$@"
+}
+
+## SOLIDHAL CUSTOM ADDITONS
+
 
 # Send these files over to the remote host when connecting over ssh to the
 # enabled hosts.
