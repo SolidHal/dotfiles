@@ -51,7 +51,7 @@ This function should only modify configuration layer settings."
      lsp
      ;; default packages:
      emacs-lisp
-     helm
+     ivy
      multiple-cursors
      treemacs)
 
