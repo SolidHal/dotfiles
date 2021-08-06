@@ -18,3 +18,5 @@
 
 [includeIf "gitdir:~/katana/"]
       path = ~/katana/.gitconfig
+[rebase]
+	instructionFormat = (%an <%ae>) %s
