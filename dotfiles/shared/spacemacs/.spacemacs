@@ -625,6 +625,8 @@ before packages are loaded."
 
   (add-hook 'mouse-leave-buffer-hook #'kill-minibuffer)
 
+  ;; setup lsp for clangd
+  (c-c++ :variables c-c++-backend 'lsp-clangd)
   )
 
 
