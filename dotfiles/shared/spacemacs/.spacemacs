@@ -616,6 +616,14 @@ before packages are loaded."
   (setq tramp-copy-size-limit 99999999)
   (setq tramp-inline-compress-start-size 999999999999)
 
+  ;; work around https://github.com/syl20bnr/spacemacs/issues/10410
+  ;; aka https://github.com/syl20bnr/spacemacs/issues/14975
+  (defun kill-minibuffer ()
+    (interactive)
+    (when (windowp (active-minibuffer-window))
+      (evil-ex-search-exit)))
+
+  (add-hook 'mouse-leave-buffer-hook #'kill-minibuffer)
 
   )
 
