@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(typescript
+   '(go
+     typescript
      clojure
      javascript
      csv
@@ -42,6 +43,7 @@ This function should only modify configuration layer settings."
      markdown
      auto-completion
      git
+     go
      colors
      spell-checking
      syntax-checking
@@ -579,6 +581,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; force bash shell for emacs, fixes issues with non-bash login shells
   (setq-default shell-file-name "/bin/bash")
+
   )
 
 
@@ -627,8 +630,9 @@ before packages are loaded."
 
   ;; setup lsp for clangd
   (setq-default dotspacemacs-configuration-layers
-                '((c-c++ :variables c-c++-backend 'lsp-clangd)))
-  )
+                '((c-c++ :variables
+                         c-c++-backend 'lsp-clangd)))
+)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -661,7 +665,14 @@ This function is called at the very end of Spacemacs initialization."
  '(auth-source-save-behavior nil)
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(typescript-mode import-js grizzl add-node-modules-path yapfify yaml-mode ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit php-extras persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup magit magit-section macrostep lorem-ipsum livid-mode skewer-mode simple-httpd live-py-mode linum-relative link-hint json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc insert-shebang indent-guide hy-mode dash-functional hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile projectile helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit with-editor transient gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck flx-ido flx fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg emmet-mode elisp-slime-nav dumb-jump drupal-mode php-mode disaster diminish define-word cython-mode csv-mode company-web web-completion-data company-statistics company-shell company-c-headers company-anaconda anaconda-mode pythonic f s company column-enforce-mode color-identifiers-mode coffee-mode cmake-mode clojure-snippets clj-refactor hydra inflections multiple-cursors paredit lv clean-aindent-mode clang-format cider-eval-sexp-fu eval-sexp-fu cider sesman seq spinner queue pkg-info parseedn clojure-mode parseclj a epl bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol ht dash auto-dictionary auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup)))
+   '(helm-gtags godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc ggtags flycheck-golangci-lint dap-mode bui counsel-gtags company-go go-mode yapfify yaml-mode ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements phpunit php-extras persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup magit magit-section macrostep lorem-ipsum livid-mode skewer-mode simple-httpd live-py-mode linum-relative link-hint json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc insert-shebang indent-guide hy-mode dash-functional hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile projectile helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit with-editor transient gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck flx-ido flx fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg emmet-mode elisp-slime-nav dumb-jump drupal-mode php-mode disaster diminish define-word cython-mode csv-mode company-web web-completion-data company-statistics company-shell company-c-headers company-anaconda anaconda-mode pythonic f s company column-enforce-mode color-identifiers-mode coffee-mode cmake-mode clojure-snippets clj-refactor hydra inflections multiple-cursors paredit lv clean-aindent-mode clang-format cider-eval-sexp-fu eval-sexp-fu cider sesman seq spinner queue pkg-info parseedn clojure-mode parseclj a epl bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol ht dash auto-dictionary auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup))
+ '(safe-local-variable-values
+   '((lsp-clients-clangd-args "--compile-commands-dir=build")
+     (typescript-backend . tide)
+     (typescript-backend . lsp)
+     (javascript-backend . tide)
+     (javascript-backend . tern)
+     (javascript-backend . lsp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
