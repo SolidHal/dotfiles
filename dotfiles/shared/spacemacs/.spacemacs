@@ -33,9 +33,13 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(go
+     swift
+     rust
      typescript
      clojure
      javascript
+     java
+     kotlin
      csv
      yaml
      html
@@ -630,9 +634,13 @@ before packages are loaded."
 
   ;; setup lsp for clangd
   (setq-default dotspacemacs-configuration-layers
-                '((c-c++ :variables
-                         c-c++-backend 'lsp-clangd)))
-)
+                '((c-c++ :variables c-c++-backend 'lsp-clangd)))
+
+  ;; setup lsp for kotlin
+  (kotlin :variables
+          kotlin-backend 'lsp
+          kotlin-lsp-jar-path "/home/solidhal/Documents/Computers/GitProjects/kotlin-language-server/server/build/scripts/kotlin-language-server")
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -678,5 +686,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
 )
