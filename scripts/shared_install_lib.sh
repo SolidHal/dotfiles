@@ -17,6 +17,18 @@ SHARED=$DOTS/shared
 BASHDOTS=$SHARED/bash
 ZSHDOTS=$SHARED/zsh
 ALACRITTYDOTS=$SHARED/alacritty
+REGOLITHDOTS=$DEVICE/regolith2
+
+removei3xrocksIndicators(){
+    echo ****REMOVING i3xrocks indicators****
+    sudo apt remove i3xrocks-cpu-usage i3xrocks-net-traffic i3xrocks-next-workspace
+}
+
+
+installi3xrocksIndicators(){
+    echo ****INSTALLING i3xrocks indicators****
+    sudo apt install i3xrocks-rofication
+}
 
 installPackages(){
     echo ****INSTALLING PACKAGES****
@@ -43,27 +55,22 @@ linkSharedDots(){
     ln -s $ZSHDOTS/.zshenv ~/.zshenv || true
     ln -s $ZSHDOTS/.p10k.zsh ~/.p10k.zsh || true
     ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
+    safeLinkDir $REGOLITHDOTS ~/.config/regolith2
 }
 
 installBinaries() {
     echo ****INSTALLING BINARIES****
-    # st with transparency
-    #sudo cp $BINS/st /usr/local/bin/st
-    #Have to configure st.info
-    #tic -sx $BINS/st.info
 
 }
 
 installScripts() {
     echo ****INSTALLING SCRIPTS****
-    # safe dd wrapper
-    #sudo cp $BINS/dd /usr/local/sbin/dd
+}
 
-    # install z.sh if it doesn't exist
-    # if ! grep -q /z/z.sh ~/.bashrc; then
-    #     echo "#z.sh script" >> ~/.bashrc
-    #     echo . $BINS/z/z.sh >> ~/.bashrc
-    # fi
+
+installi3xrocksLaptopIndicators(){
+    echo ****INSTALLING i3xrocks indicators****
+    sudo apt install i3xrocks-battery
 }
 
 standardInstall() {
@@ -71,4 +78,6 @@ standardInstall() {
     linkSharedDots
     installBinaries
     installScripts
+    removei3xrocksIndicators
+    installi3xrocksIndicators
 }
