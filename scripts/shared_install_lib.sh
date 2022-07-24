@@ -41,7 +41,6 @@ installPackages(){
     sudo apt install \
          zsh \
          emacs \
-         neovim \
          ripgrep
 }
 
