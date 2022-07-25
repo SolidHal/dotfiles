@@ -17,7 +17,7 @@ SHARED=$DOTS/shared
 BASHDOTS=$SHARED/bash
 ZSHDOTS=$SHARED/zsh
 ALACRITTYDOTS=$SHARED/alacritty
-REGOLITHDOTS=$DEVICE/regolith2
+REGOLITHDOTS=$SHARED/regolith2
 
 removei3xrocksIndicators(){
     echo ****REMOVING i3xrocks indicators****
@@ -54,6 +54,7 @@ linkSharedDots(){
     ln -s $ZSHDOTS/.zshenv ~/.zshenv || true
     ln -s $ZSHDOTS/.p10k.zsh ~/.p10k.zsh || true
     ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
+    rm -rf ~/.config/regolith2
     safeLinkDir $REGOLITHDOTS ~/.config/regolith2
 }
 
