@@ -154,3 +154,4 @@ font pango:$i3-wm.font
 
 # Include any user i3 partials
 include $HOME/.config/regolith2/i3/config.d/*
+
