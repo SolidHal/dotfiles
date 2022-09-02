@@ -150,9 +150,9 @@ workspace $ws3; move workspace to output $monitor_three; \
 workspace $ws6; move workspace to output $monitor_three; \
 workspace $ws9; move workspace to output $monitor_three; \
 workspace $ws1; move workspace to output $monitor_one; \
-workspace $ws2; workspace $ws3; workspace $ws1;
-# exec --no-startup-id /usr/bin/nitrogen --restore
-# # then refocus the main workspaces after moving
+workspace $ws2; workspace $ws3; workspace $ws1; \
+exec --no-startup-id /usr/bin/nitrogen --restore
+# then refocus the main workspaces after moving
 
 # # Move workspaces to "gaming" setup
 bindsym $mod+shift+g workspace $ws1; move workspace to output $monitor_four; \
@@ -165,9 +165,9 @@ workspace $ws3; move workspace to output $monitor_three; \
 workspace $ws6; move workspace to output $monitor_three; \
 workspace $ws9; move workspace to output $monitor_three; \
 workspace $ws10; move workspace to output $monitor_four; \
-workspace $ws2; workspace $ws3; workspace $ws1;
-# exec --no-startup-id /usr/bin/nitrogen --restore
-# # then refocus the main workspaces after moving
+workspace $ws2; workspace $ws3; workspace $ws1; \
+exec --no-startup-id /usr/bin/nitrogen --restore
+# then refocus the main workspaces after moving
 
 # Core application workspace assignments
 assign [class="Thunderbird"] $ws9

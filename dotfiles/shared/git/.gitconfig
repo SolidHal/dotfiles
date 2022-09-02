@@ -20,3 +20,5 @@
       path = ~/katana/.gitconfig
 [rebase]
 	instructionFormat = (%an <%ae>) %s
+[init]
+	defaultBranch = master
