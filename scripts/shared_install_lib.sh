@@ -32,6 +32,14 @@ installi3xrocksIndicators(){
 
 installPackages(){
     echo ****INSTALLING PACKAGES****
+
+    ## basic packages
+    sudo apt install \
+         git \
+         curl \
+         vim \
+         wget
+
     ## ppa packages
     sudo add-apt-repository ppa:mmstick76/alacritty
     sudo apt-get update
