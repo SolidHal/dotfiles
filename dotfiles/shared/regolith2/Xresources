@@ -1,2 +1,4 @@
 regolith.wallpaper.file: 
 regolith.wallpaper.color.primary: 
+!regolith.look.path: /usr/share/regolith-look/ayu-dark
+regolith.look.path: /usr/share/regolith-look/dracula

@@ -39,7 +39,6 @@ This function should only modify configuration layer settings."
      clojure
      javascript
      java
-     kotlin
      csv
      yaml
      html
@@ -613,8 +612,8 @@ before packages are loaded."
   (setq-default powerline-default-separator 'arrow)
 
   ;; transparency
-  ;; (spacemacs/enable-transparency)
-  ;; (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
+  (spacemacs/enable-transparency)
+  (add-hook 'after-make-frame-functions 'spacemacs/enable-transparency)
 
   ;; make python over tramp not suck
   (setq anaconda-mode-localhost-address "localhost")
@@ -636,11 +635,7 @@ before packages are loaded."
   (setq-default dotspacemacs-configuration-layers
                 '((c-c++ :variables c-c++-backend 'lsp-clangd)))
 
-  ;; setup lsp for kotlin
-  (kotlin :variables
-          kotlin-backend 'lsp
-          kotlin-lsp-jar-path "/home/solidhal/Documents/Computers/GitProjects/kotlin-language-server/server/build/scripts/kotlin-language-server")
-  )
+)
 
 
 ;; Do not write anything past this comment. This is where Emacs will
