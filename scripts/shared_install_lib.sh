@@ -12,6 +12,7 @@ safeLinkDir(){
 
 DOTS=~/dotfiles/dotfiles
 BINS=~/dotfiles/bin
+RESOURCES=~/dotfiles/resources
 SHARED=$DOTS/shared
 
 BASHDOTS=$SHARED/bash
@@ -39,11 +40,6 @@ installPackages(){
          curl \
          vim \
          wget
-
-    ## ppa packages
-    sudo add-apt-repository ppa:mmstick76/alacritty
-    sudo apt-get update
-    sudo apt install alacritty
 
     ## standard packages
     sudo apt install \
@@ -76,6 +72,9 @@ linkSharedDots(){
 
 installBinaries() {
     echo ****INSTALLING BINARIES****
+    # setup alacritty terminal info
+    # alacritty binary is called from the i3 config
+    sudo tic -xe alacritty,alacritty-direct $RESOURCES/alacritty.info
 
 }
 
