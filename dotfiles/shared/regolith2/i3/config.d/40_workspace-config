@@ -137,6 +137,7 @@ workspace 8 output $monitor_two
 workspace 3 output $monitor_three
 workspace 6 output $monitor_three
 workspace 9 output $monitor_three
+workspace 10 output $monitor_two
 
 # # Move workspaces back to normal setup
 bindsym $mod+shift+b workspace $ws1; move workspace to output $monitor_one; \
