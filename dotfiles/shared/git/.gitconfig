@@ -14,7 +14,7 @@
 	username = solidhal
 
 [ssh]
-	identity = /home/eva/.ssh/id_ed25519
+	identity = $HOME/.ssh/id_ed25519
 
 [rebase]
 	instructionFormat = (%an <%ae>) %s
