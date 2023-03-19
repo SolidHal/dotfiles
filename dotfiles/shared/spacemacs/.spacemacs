@@ -564,7 +564,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                           :width normal)))
   )
 
-  (if (string-equal "solidhal-dev" (system-name))
+  (if (string-equal "emmerich" (system-name))
       (setq-default dotspacemacs-default-font
                     `("Source Code Pro"
                       :size 18

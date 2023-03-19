@@ -1,6 +1,6 @@
 [user]
-        name = SolidHal
-        email = hal@halemmerich.com
+        name = Eva Emmerich
+        email = eva@evaemmerich.com
 [color]
        ui = true
 [core]
@@ -14,10 +14,8 @@
 	username = solidhal
 
 [ssh]
-	identity = /home/solidhal/.ssh/id_rsa
+	identity = /home/eva/.ssh/id_ed25519
 
-[includeIf "gitdir:~/katana/"]
-      path = ~/katana/.gitconfig
 [rebase]
 	instructionFormat = (%an <%ae>) %s
 [init]

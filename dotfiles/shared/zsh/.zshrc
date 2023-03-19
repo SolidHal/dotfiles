@@ -35,6 +35,7 @@ zstyle ':z4h:ssh:*.example-hostname2' enable 'no'
 zstyle ':z4h:ssh:*'                   enable 'no'
 zstyle ':z4h:ssh:liquidsnake-*'                   enable 'yes'
 zstyle ':z4h:ssh:raiden*'                   enable 'yes'
+zstyle ':z4h:ssh:solidsnake'                   enable 'yes'
 
 
 ## SOLIDHAL CUSTOM ADDITONS
@@ -120,3 +121,11 @@ alias ls="${aliases[ls]:-ls} -A"
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
 setopt no_auto_menu  # require an extra TAB press to open the completion menu
+
+
+## SOLIDHAL CUSTOM ADDITONS
+
+# Load work profile do this last so we can reload p10k if we want to
+if [ -f "$HOME/.zshwork" ]; then . "$HOME/.zshwork"; fi
+
+## SOLIDHAL CUSTOM ADDITONS
