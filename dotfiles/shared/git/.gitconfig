@@ -14,7 +14,11 @@
 	username = solidhal
 
 [ssh]
-	identity = $HOME/.ssh/id_ed25519
+  identity = $HOME/.ssh/id_ed25519
+
+
+[includeIf "gitdir:~/coreos/"]
+        path = ~/coreos/.gitconfig
 
 [rebase]
 	instructionFormat = (%an <%ae>) %s
