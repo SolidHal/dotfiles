@@ -152,7 +152,7 @@ workspace $ws6; move workspace to output $monitor_three; \
 workspace $ws9; move workspace to output $monitor_three; \
 workspace $ws1; move workspace to output $monitor_one; \
 workspace $ws2; workspace $ws3; workspace $ws1; \
-exec --no-startup-id /usr/bin/nitrogen --restore
+exec --no-startup-id $HOME/dotfiles/bin/correct_nitrogen_config.py
 # then refocus the main workspaces after moving
 
 # # Move workspaces to "gaming" setup
