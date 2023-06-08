@@ -585,7 +585,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; force bash shell for emacs, fixes issues with non-bash login shells
   (setq-default shell-file-name "/bin/bash")
-
+  (setq-default explicit-shell-file-name "/bin/bash")
+  (setq-default tramp-encoding-shell "/bin/bash")
   )
 
 

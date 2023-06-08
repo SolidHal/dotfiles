@@ -4,6 +4,11 @@
 #
 # Documentation: https://github.com/romkatv/zsh4humans/blob/v5/README.md.
 
+
+## SOLIDHAL CUSTOM ADDITONS
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+## SOLIDHAL CUSTOM ADDITONS
+
 # Periodic auto-update on Zsh startup: 'ask' or 'no'.
 # You can manually run `z4h update` to update everything.
 zstyle ':z4h:' auto-update      'no'
@@ -54,6 +59,27 @@ la () {
     ls --color -lah "$@"
 }
 
+start_em () {
+    ~/dotfiles/bin/start_emacs.sh
+}
+
+emsh () {
+    ~/dotfiles/bin/em.sh $1
+}
+
+emc () {
+    # ask the connected ssh host to open the file, $1 on our host
+    ssh_client_host=$(echo $SSH_CLIENT | cut -f1 -d" ")
+    ssh_client_user=$(echo $_Z4H_SSH_MARKER | cut -f1 -d".")
+    ssh_local_host=$(hostname)
+
+    # resolve any relative paths
+    target_file=$(realpath $1)
+
+    echo Asking $ssh_client_user@$ssh_client_host to open /ssh:$USER@$ssh_local_host:$target_file
+
+    /usr/bin/ssh $ssh_client_user@$ssh_client_host "~/dotfiles/bin/remote_em.sh /ssh:$USER@$(hostname):$target_file"
+}
 ## SOLIDHAL CUSTOM ADDITONS
 
 
