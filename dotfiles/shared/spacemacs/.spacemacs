@@ -636,6 +636,9 @@ before packages are loaded."
   (setq-default dotspacemacs-configuration-layers
                 '((c-c++ :variables c-c++-backend 'lsp-clangd)))
 
+  ;; don't add newlines to the end of files
+  (setq mode-require-final-newline nil)
+
 )
 
 
