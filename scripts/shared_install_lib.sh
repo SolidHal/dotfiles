@@ -92,6 +92,17 @@ installi3xrocksLaptopIndicators(){
     sudo apt install i3xrocks-battery
 }
 
+installxsecurelock(){
+    echo ****Installing xsecurelock****
+    sudo apt install xsecurelock
+    # disable gnome flashback screen saver
+    gsettings set org.gnome.gnome-flashback screensaver false
+
+    ln -s $SHARED/xsecurelock/lock.desktop ~/.local/share/applications/ || true
+    ln -s $SHARED/xsecurelock/suspend.desktop ~/.local/share/applications/ || true
+    update-desktop-database ~/.local/share/applications
+}
+
 standardInstall() {
     installPackages
     linkSharedDots

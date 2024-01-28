@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Lock
+Exec=/bin/bash /home/eva/dotfiles/bin/lock.sh
+Type=Application
+NoDisplay=false
+Keywords=lock;Lock;Screen

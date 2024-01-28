@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Name=Suspend
+Exec=/bin/bash /home/eva/dotfiles/bin/suspend.sh
+Type=Application
+Keywords=suspend;Suspend;screen;Screen
