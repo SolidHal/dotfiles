@@ -567,7 +567,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (if (string-equal "emmerich" (system-name))
       (setq-default dotspacemacs-default-font
                     `("Source Code Pro"
-                      :size 18
+                      :size 16
                       :weight normal
                       :width normal)))
 
