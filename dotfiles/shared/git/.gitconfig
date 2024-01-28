@@ -23,4 +23,4 @@
 [rebase]
 	instructionFormat = (%an <%ae>) %s
 [init]
-	defaultBranch = master
+	defaultBranch = main
