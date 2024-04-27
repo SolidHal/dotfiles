@@ -69,7 +69,8 @@ linkSharedDots(){
     ln -s $ZSHDOTS/.zshrc ~/.zshrc || true
     ln -s $ZSHDOTS/.zshenv ~/.zshenv || true
     ln -s $ZSHDOTS/.p10k.zsh ~/.p10k.zsh || true
-    ln -s $ALACRITTYDOTS/.alacritty.yml ~/.alacritty.yml || true
+    rm -rf ~/.config/alacritty
+    safeLinkDir $ALACRITTYDOTS ~/.config/alacritty
     rm -rf ~/.config/regolith2
     safeLinkDir $REGOLITHDOTS ~/.config/regolith2
 }
