@@ -151,6 +151,9 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 ## SOLIDHAL CUSTOM ADDITONS
 
+# Load rust cargo
+if [ -f "$HOME/.cargo/env" ]; then . "$HOME/.cargo/env"; fi
+
 # Load work profile do this last so we can reload p10k if we want to
 if [ -f "$HOME/.zshwork" ]; then . "$HOME/.zshwork"; fi
 
