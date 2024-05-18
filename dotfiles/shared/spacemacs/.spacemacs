@@ -544,7 +544,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (if (string-equal "greyfox" (system-name))
       (setq-default dotspacemacs-default-font
                     `("Source Code Pro"
-                      :size 25
+                      :size 18
                       :weight normal
                       :width normal)))
 
